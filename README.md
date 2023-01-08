@@ -7,6 +7,9 @@
             <groupId>com.alibaba.fastjson2</groupId>
             <artifactId>fastjson2</artifactId>
             <version>2.0.7.android</version>
+
+
+
 </dependency>
 ```
 # 延伸阅读
