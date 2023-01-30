@@ -1,0 +1,11 @@
+#需要启用的插件(插件名称为插件类m)
+plugins:
+  Weather
+
+WebHook:
+  RSAToken: ""
+
+Weather:
+  WeatherAPI: ""
+  TokenKey: ""
+  APIToken: ""
