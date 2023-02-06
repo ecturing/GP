@@ -2,7 +2,9 @@ package com.ecturing.Gp.WebSocket.until;
 
 import com.alibaba.fastjson2.JSONObject;
 import com.ecturing.Gp.WebSocket.model.GroupMsg;
+import org.springframework.stereotype.Service;
 
+@Service
 public abstract class MsgFilter {
     public GroupMsg groupMsg;
     public MsgFilter(JSONObject json) {

@@ -22,6 +22,12 @@ public class Weather implements BotPlugins {
     public void Service() {
         Map<String,String> keymap=new HashMap<>();
         keymap.put(tokenKey,token);
-        new SendUpClient(URIAddress, null, HttpMethod.GET,tokenKey,token);
+        Map<String,String> data=new HashMap<>();
+        data.put("source","pc");
+        data.put("province","湖北");
+        data.put("city","宜昌");
+        data.put("county","宜都");
+        data.put("weather_type","observe");
+        new SendUpClient(URIAddress, null, HttpMethod.GET,tokenKey,token).SendUp();
     }
 }

@@ -1,8 +1,9 @@
 package com.ecturing.Gp.WebSocket.controller;
 
-import com.alibaba.fastjson2.JSON;
-import com.ecturing.Gp.WebSocket.until.MsgFilter;
+import com.ecturing.Gp.WebSocket.service.pluTest;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
 
 import javax.websocket.*;
@@ -12,6 +13,9 @@ import javax.websocket.server.ServerEndpoint;
 @Slf4j
 @ServerEndpoint("/ws_Bot")
 public class MainController {
+    @Autowired
+    private pluTest pluTest;
+
     private Session session;
     @OnOpen
     public void Open(){
@@ -29,8 +33,10 @@ public class MainController {
     }
 
     @OnMessage
-    public void Message(String Message) {
+    public void Message(String Message) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 //        MsgFilter.MsgDeal(JSON.parseObject(Message));
         log.info(Message);
+
+        pluTest.Run();
     }
 }

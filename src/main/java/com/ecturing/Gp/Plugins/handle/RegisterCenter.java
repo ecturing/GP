@@ -8,11 +8,13 @@ package com.ecturing.Gp.Plugins.handle;
 import com.ecturing.Gp.Plugins.untils.ThreadPoolConfig;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 
+@Service
 public class RegisterCenter {
     @Qualifier("taskExecutor")
     ThreadPoolConfig threadPool;
@@ -21,16 +23,17 @@ public class RegisterCenter {
     ArrayList<BotPlugins> botPlugins=new ArrayList<>();
 
     @Value("${plugins}")
-    private String[] pluginNames;
+    private String pluginNames;
 
     /*根据查询到的插件名称初始化对应插件类*/
     public static Object getClass(String name) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
-        Class<?> cla=Class.forName("com.ecturing.Gp.Plugins.handle.plugins"+name);
+        Class<?> cla=Class.forName("com.ecturing.Gp.Plugins.handle.plugins."+name);
         return cla.newInstance();
     }
     /*插件注册*/
     public  void Register() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-        Iterator<String> iterator= Arrays.stream(pluginNames).iterator();
+        String[] data=pluginNames.split(",");
+        Iterator<String> iterator= Arrays.stream(data).iterator();
         while (iterator.hasNext()){
             String name=iterator.next();
             BotPlugins plugins=(BotPlugins)getClass(name);

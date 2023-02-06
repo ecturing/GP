@@ -1,7 +1,9 @@
 package com.ecturing.Gp.WebSocket.until;
 
 import com.alibaba.fastjson2.JSONObject;
+import org.springframework.stereotype.Service;
 
+@Service
 public class MsgFilterImpl extends MsgFilter {
     public MsgFilterImpl(JSONObject json) {
         super(json);
