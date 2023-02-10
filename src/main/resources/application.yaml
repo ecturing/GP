@@ -1,13 +1,9 @@
 #需要启用的插件(插件名称为插件类m)
-plugins: "Weather,Boot"
+plugins: "Weather"
 
 WebHook:
   RSAToken: ""
 
-Weather:
-  WeatherAPI: "https://wis.qq.com/weather/common?source=pc&province=湖北&city=孝感&county=孝南区&weather_type=observe"
-  TokenKey: ""
-  APIToken: ""
 
 server:
   port: 8081
@@ -18,8 +14,13 @@ spring:
 
 BotAddress: "http:"
 
+#线程池
 corePoolSize: 5
 maxPoolSize: 30
 keepAliveTime: 30
 queueCapacity: 100
-threadName: "ec"
+threadName: "Plugin:"
+logging:
+  level:
+    root: info
+    com.ecturing.Gp: debug

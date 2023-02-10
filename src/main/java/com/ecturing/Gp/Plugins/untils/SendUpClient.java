@@ -5,11 +5,14 @@ package com.ecturing.Gp.Plugins.untils;
  */
 
 import com.alibaba.fastjson2.JSONObject;
+import lombok.extern.log4j.Log4j2;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.*;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-@Slf4j
+
+@Log4j2
 public class SendUpClient {
     private String path;//请求地址
     private JSONObject data;//请求体

@@ -1,32 +1,15 @@
 package com.ecturing.Gp.WebHook.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.springframework.context.annotation.Bean;
 
 /***
  * 原作者实体类
  */
+@Data
+@AllArgsConstructor
 public class Author {
     public String name;
     public String email;
-
-    public String getName() {
-        return name;
-    }
-
-    public Author(String name, String email) {
-        this.name = name;
-        this.email = email;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 }

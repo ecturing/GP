@@ -1,14 +1,17 @@
 package com.ecturing.Gp.WebHook.service.certificate;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 public class CertificateServiceImpl implements CertificateService {
-    @Value("${WebHook.RSAToken}")
-    private String RSAToken;
+    /***
+     * 证书校验服务
+     * @param token 公钥
+     * @return 状态
+     */
     @Override
     public String Run(String token) {
+
         return null;
     }
 }
