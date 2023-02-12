@@ -3,6 +3,7 @@ package com.ecturing.Gp.WebHook.controller;
 import com.alibaba.fastjson2.JSONObject;
 import com.ecturing.Gp.WebHook.service.Handle.HandleService;
 import com.ecturing.Gp.WebHook.service.certificate.CertificateService;
+import com.ecturing.Gp.WebSocket.service.APIService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,6 +20,9 @@ public class ReceiverController {
     @Autowired
     CertificateService certificateService;
 
+    @Autowired
+    APIService apiService;
+
     @RequestMapping("/Hook")
     public String handler(
             @RequestHeader(value="X-Gitee-Token") String token,
@@ -26,6 +30,7 @@ public class ReceiverController {
         String SendData= handleService.run(dataForm);
         certificateService.Run(token);
         log.info(SendData);
+        apiService.SendTo_Bot(SendData);
         return "";
     }
 }
