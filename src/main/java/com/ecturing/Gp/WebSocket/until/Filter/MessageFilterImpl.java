@@ -52,7 +52,7 @@ public class MessageFilterImpl implements MessageFilter {
     public void Message_Filter(String Message) {
         log.info(Message);
         if (Message.contains("/天气")) {
-            registerCenter.botPlugins.get(0).Service();
+            registerCenter.pluginRun("Weather");
         }
     }
 }

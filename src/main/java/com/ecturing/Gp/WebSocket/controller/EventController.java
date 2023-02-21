@@ -2,7 +2,6 @@ package com.ecturing.Gp.WebSocket.controller;
 
 import com.alibaba.fastjson2.JSONObject;
 import com.ecturing.Gp.WebSocket.model.GroupMsg;
-import com.ecturing.Gp.WebSocket.service.PluginsCenter;
 import com.ecturing.Gp.WebSocket.until.Filter.RootFilter;
 import com.ecturing.Gp.WebSocket.until.JSONConvert;
 import lombok.extern.slf4j.Slf4j;
@@ -21,12 +20,8 @@ import javax.websocket.server.ServerEndpoint;
 @ServerEndpoint("/Ws_Bot_Event")
 public class EventController {
     private static RootFilter rootFilter;
-    private static PluginsCenter pluginsCenter;
 
-    @Autowired
-    public void setPluginsCenter(PluginsCenter pluginsCenter) {
-        EventController.pluginsCenter = pluginsCenter;
-    }
+
 
     @Autowired
     public  void setRootFilter(RootFilter rootFilter) {
@@ -53,6 +48,5 @@ public class EventController {
         JSONObject jsonObject=JSONObject.parseObject(Message);
         GroupMsg msg=JSONConvert.convert(jsonObject);
         rootFilter.Post_Type_Filter(msg);
-        pluginsCenter.Run();
     }
 }
