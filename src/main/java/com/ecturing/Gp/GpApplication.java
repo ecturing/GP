@@ -5,9 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-public class WebHookApplication {
+public class GpApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(WebHookApplication.class, args);
+        SpringApplication.run(GpApplication.class, args);
     }
 }

@@ -2,6 +2,8 @@ package com.ecturing.Gp.WebSocket.until.Filter;
 
 import org.springframework.stereotype.Service;
 
+import java.util.concurrent.ExecutionException;
+
 @Service
 public interface MessageFilter {
     /**
@@ -22,5 +24,5 @@ public interface MessageFilter {
     /**
      * 消息过滤器
      */
-     void Message_Filter(String Message);
+     void Message_Filter(String Message) throws ExecutionException, InterruptedException;
 }

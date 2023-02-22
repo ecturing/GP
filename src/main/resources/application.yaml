@@ -11,6 +11,11 @@ server:
 spring:
   application:
     name: GP
+  data:
+    mongodb:
+      host: 192.168.0.103
+      username: mongoadmin
+      password: mongoadmin
 
 BotAddress: "http:"
 

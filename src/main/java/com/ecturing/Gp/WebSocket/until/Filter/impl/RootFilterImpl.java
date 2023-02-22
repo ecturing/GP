@@ -1,10 +1,14 @@
-package com.ecturing.Gp.WebSocket.until.Filter;
+package com.ecturing.Gp.WebSocket.until.Filter.impl;
 
 import com.ecturing.Gp.WebSocket.model.GroupMsg;
+import com.ecturing.Gp.WebSocket.until.Filter.MessageFilter;
+import com.ecturing.Gp.WebSocket.until.Filter.RootFilter;
 import lombok.extern.log4j.Log4j2;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.concurrent.ExecutionException;
 
 @Component
 @Slf4j
@@ -17,7 +21,7 @@ public class RootFilterImpl implements RootFilter {
      * @param groupMsg 消息
      */
     @Override
-    public void Post_Type_Filter(GroupMsg groupMsg) {
+    public void Post_Type_Filter(GroupMsg groupMsg) throws ExecutionException, InterruptedException {
         switch (groupMsg.getPostType()){
             case "meta_event":
                log.debug("heart beat");

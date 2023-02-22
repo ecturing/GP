@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
+import java.util.concurrent.ExecutionException;
 
 /***
  * 事件控制器
@@ -44,7 +45,7 @@ public class EventController {
     }
 
     @OnMessage
-    public void Message(String Message) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+    public void Message(String Message) throws ExecutionException, InterruptedException {
         JSONObject jsonObject=JSONObject.parseObject(Message);
         GroupMsg msg=JSONConvert.convert(jsonObject);
         rootFilter.Post_Type_Filter(msg);

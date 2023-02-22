@@ -3,6 +3,8 @@ package com.ecturing.Gp.WebSocket.until.Filter;
 import com.ecturing.Gp.WebSocket.model.GroupMsg;
 import org.springframework.stereotype.Component;
 
+import java.util.concurrent.ExecutionException;
+
 /**
  * 根滤波器
  *
@@ -16,5 +18,5 @@ public interface RootFilter {
      *
      * @param groupMsg 消息
      */
-    void Post_Type_Filter(GroupMsg groupMsg);
+    void Post_Type_Filter(GroupMsg groupMsg) throws ExecutionException, InterruptedException;
 }
