@@ -95,7 +95,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.3.7.RELEASE</version>
                 <configuration>
-                    <mainClass>com.ecturing.Gp.GpApplication</mainClass>
+                    <mainClass>com.ecturing.gp.GpApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

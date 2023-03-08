@@ -25,5 +25,5 @@ threadName: "Plugin:"
 logging:
   level:
     root: info
-    com.ecturing.Gp: info
+    com.ecturing.gp: info
 
