@@ -3,18 +3,12 @@ WebHook:
 
 
 server:
-  port: 8081
+  port: 8080
 
 spring:
   application:
     name: GP
-  data:
-    mongodb:
-      host: 192.168.0.103
-      username: mongoadmin
-      password: mongoadmin
 
-BotAddress: "http:"
 
 #线程池
 corePoolSize: 5
@@ -22,6 +16,8 @@ maxPoolSize: 30
 keepAliveTime: 30
 queueCapacity: 100
 threadName: "Plugin:"
+
+#log级别
 logging:
   level:
     root: info
