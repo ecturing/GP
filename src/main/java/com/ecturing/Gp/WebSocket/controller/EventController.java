@@ -1,9 +1,9 @@
 package com.ecturing.Gp.WebSocket.controller;
 
+import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
-import com.ecturing.Gp.WebSocket.model.GroupMsg;
+import com.ecturing.Gp.WebSocket.model.BaseMsg;
 import com.ecturing.Gp.WebSocket.until.Filter.RootFilter;
-import com.ecturing.Gp.WebSocket.until.JSONConvert;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -21,8 +21,6 @@ import java.util.concurrent.ExecutionException;
 @ServerEndpoint("/Ws_Bot_Event")
 public class EventController {
     private static RootFilter rootFilter;
-
-
 
     @Autowired
     public  void setRootFilter(RootFilter rootFilter) {
@@ -47,7 +45,7 @@ public class EventController {
     @OnMessage
     public void Message(String Message) throws ExecutionException, InterruptedException {
         JSONObject jsonObject=JSONObject.parseObject(Message);
-        GroupMsg msg=JSONConvert.convert(jsonObject);
+        BaseMsg msg= JSON.to(BaseMsg.class,jsonObject);
         rootFilter.Post_Type_Filter(msg);
     }
 }

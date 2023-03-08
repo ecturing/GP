@@ -31,11 +31,11 @@ public class APIController {
     }
     @OnClose
     public void OnClose(){
-        log.debug("API ws connection close");
+        log.info("API ws connection close");
     }
     @OnError
     public void OnError(Throwable throwable){
-        log.error("API ws connection ERROR",throwable);
+        log.info("API ws connection ERROR",throwable);
     }
     @OnMessage
     public void OnMessage(String message){

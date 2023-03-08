@@ -4,11 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /***
- * API向Bot发送消息
+ * 发送群组消息
  */
 @Data
 @AllArgsConstructor
-public class SendToBotData {
-    String action;
-    Object params;
+public class SendGroupMsg {
+    Integer group_id;
+    String message;
+
+    boolean auto_escape;
 }

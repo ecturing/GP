@@ -1,9 +1,8 @@
 package com.ecturing.Gp.WebSocket.until.Filter.impl;
 
-import com.ecturing.Gp.WebSocket.model.GroupMsg;
+import com.ecturing.Gp.WebSocket.model.BaseMsg;
 import com.ecturing.Gp.WebSocket.until.Filter.MessageFilter;
 import com.ecturing.Gp.WebSocket.until.Filter.RootFilter;
-import lombok.extern.log4j.Log4j2;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,21 +17,20 @@ public class RootFilterImpl implements RootFilter {
     /**
      * 上报类型过滤
      *
-     * @param groupMsg 消息
+     * @param baseMsg 消息
      */
     @Override
-    public void Post_Type_Filter(GroupMsg groupMsg) throws ExecutionException, InterruptedException {
-        switch (groupMsg.getPostType()){
+    public void Post_Type_Filter(BaseMsg baseMsg) throws ExecutionException, InterruptedException {
+        //基础事件过滤
+        switch (baseMsg.getPostType()){
             case "meta_event":
                log.debug("heart beat");
                break;
             case "message":
-                messageFilter.Group_Id_Filter(groupMsg.getGroupId());
-                messageFilter.Message_Type_Filter(groupMsg.getMessage_type());
-                messageFilter.Message_Filter(groupMsg.getMsg());
-                messageFilter.User_Id_Filter(groupMsg.getUserId());
+                messageFilter.Filter(baseMsg);
                 break;
             case "notice":
+                log.info("通知消息");
                 break;
             default:
                 log.debug("invalid value");

@@ -4,13 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /***
- * 发送群组消息
+ * 删除消息
  */
 @Data
 @AllArgsConstructor
-public class SendGroup {
-    Integer group_id;
-    String message;
-
-    boolean auto_escape;
+public class DelGroupMsg {
+    Long message_id;
 }

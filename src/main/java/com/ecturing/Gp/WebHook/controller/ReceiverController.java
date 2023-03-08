@@ -26,11 +26,20 @@ public class ReceiverController {
     @RequestMapping("/Hook")
     public String handler(
             @RequestHeader(value="X-Gitee-Token") String token,
-            @RequestBody JSONObject dataForm){
-        String SendData= handleService.run(dataForm);
-        certificateService.Run(token);
-        log.info(SendData);
-        apiService.SendTo_Bot(SendData);
+            @RequestBody JSONObject dataForm,
+            @RequestHeader(value = "X-Gitee-Event") String X_Gitee_Event){
+//        String SendData= handleService.run(dataForm);
+//        certificateService.Run(token);
+//        log.info(SendData);
+//        apiService.SendTo_Bot(SendData);
+        switch (X_Gitee_Event){
+            case "Push Hook":
+                break;
+            case "Issue Hook":
+                break;
+            case "Merge Request Hook":
+                break;
+        }
         return "";
     }
 }
